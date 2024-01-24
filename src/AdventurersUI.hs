@@ -193,4 +193,3 @@ keyHandler (EventKey (Char 'k') _ _ _) sim = sim { crossingSpeed = 1.2 * (crossi
 keyHandler (EventKey (Char 'j') _ _ _) sim = sim { crossingSpeed = (crossingSpeed sim) * 0.8 }
 keyHandler (EventKey (Char 'i') _ _ _) sim = sim { started = True }
 keyHandler _ sim = sim 
-

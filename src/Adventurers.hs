@@ -16,7 +16,7 @@ data Adventurer = P1 | P2 | P5 | P10 deriving (Show, Eq, Enum)
 type Objects = Either Adventurer ()
 
 objects :: [Objects]
-objects = adventurers++[lantern]
+objects = adventurers ++ [lantern]
 
 adventurers :: [Either Adventurer b]
 adventurers = Left <$> [P1 ..P10]
