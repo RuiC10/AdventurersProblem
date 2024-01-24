@@ -149,7 +149,6 @@ instance Monad LogListDur where
     return = LogLD . return . split (const []) return 
     l >>= k = LogLD [(logs ++ log', wait (getDuration dur) dur') | (logs, dur) <- remLog l, (log', dur') <- remLog (k (getValue dur))] 
 
-
 toLogListDur :: Int -> [State] -> a -> LogListDur a
 toLogListDur n = curry $ LogLD . pure . (id >< (wait n . pure))
 
@@ -168,7 +167,6 @@ logAllValidPlays s = logManyChoice $ map(\l -> toLogListDur (getTime l) [s] (mCh
         preCondition l = l /= [] && length l <= maxCrossers && all ((s lantern ==) . s) l 
         getTime = maximum . fmap getTimeAdv . lefts 
 
-
 logExec :: Int -> State -> LogListDur State  
 logExec n = (!! n) . iterate (>>= logAllValidPlays) . return
 
@@ -185,4 +183,3 @@ in < 17 min ? --}
 -- To implement
 l17' :: Bool
 l17' = (any (\(st,(t,s)) -> (t < 17) && (s == gFinal)) . unpackLogs . logExec 5) gInit
-

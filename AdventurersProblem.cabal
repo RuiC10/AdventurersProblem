@@ -1,0 +1,10 @@
+cabal-version:      2.4
+name:               AdventurersProblem
+version:            0.1.0.0
+
+executable AdventurersProblem
+    main-is:          Main.hs
+
+    build-depends:    base ^>=4.17.2.0, gloss ^>= 1.13.2.2, gloss-juicy ^>= 0.2.3
+    hs-source-dirs:   app, src
+    default-language: Haskell2010

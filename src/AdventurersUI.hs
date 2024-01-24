@@ -1,4 +1,4 @@
-module Main where
+module AdventurersUI where
 
 import Graphics.Gloss
 import Graphics.Gloss.Interface.Pure.Game
@@ -194,9 +194,3 @@ keyHandler (EventKey (Char 'j') _ _ _) sim = sim { crossingSpeed = (crossingSpee
 keyHandler (EventKey (Char 'i') _ _ _) sim = sim { started = True }
 keyHandler _ sim = sim 
 
-main :: IO ()
-main = do
-        Just bridge <- loadJuicyPNG "Bridge.png"
-        Just lantern <- loadJuicyPNG "Lantern.png"
-        [steps, maxTime] <- map (read :: String -> Int) <$> getArgs
-        play  window background fr (initialState (steps, maxTime) bridge lantern) render keyHandler moveAdvs
